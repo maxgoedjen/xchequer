@@ -1,0 +1,10 @@
+name: 'xchequer'
+description: 'Run xchequer on a log file and post annotations to your PR.'
+inputs:
+  log:
+    description: 'Path to the log file to parse'
+    required: true
+    default: ''
+runs:
+  using: 'node12'
+  main: 'src/index.ts'
