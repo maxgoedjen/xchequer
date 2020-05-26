@@ -4,15 +4,16 @@ export enum AnnotationType {
 	RuntimeFailure,
 }
 
-export class AnnotationLocation {
+export interface AnnotationLocation {
 	file: string;
 	lineNumber: number;
 	startCharacterIndex: number;
 	endCharacterIndex: number;
 }
 
-export class Annotation {
+export interface Annotation {
 	type: AnnotationType;
+	message: string;
 	location: AnnotationLocation;
 }
 

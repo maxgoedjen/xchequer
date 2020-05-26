@@ -1,0 +1,6 @@
+{
+  "editor.default_syntax" : "typescript",
+  "index.ignored_file_patterns" : [
+    "*.js"
+  ]
+}
