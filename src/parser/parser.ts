@@ -8,7 +8,6 @@ export interface AnnotationLocation {
 	file: string;
 	lineNumber: number;
 	startCharacterIndex: number;
-	endCharacterIndex: number;
 }
 
 export interface Annotation {

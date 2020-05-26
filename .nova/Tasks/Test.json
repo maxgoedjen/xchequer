@@ -1,6 +1,10 @@
 {
   "actions" : {
-
+    "run" : {
+      "enabled" : true,
+      "script" : "ts-node src\/parser\/xcodebuild.ts"
+    }
   },
-  "identifier" : "67603C49-5AA5-4766-AF85-DA1778961DC9"
+  "identifier" : "D5C52D2B-2487-44C0-A4D8-3FFAF8024168",
+  "openLogOnRun" : "start"
 }

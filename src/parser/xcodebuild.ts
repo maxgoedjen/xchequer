@@ -1,24 +1,25 @@
 import { Parser, Annotation, AnnotationType, AnnotationLocation } from "./parser";
 
-class XcodeBuildParser implements Parser {
-	
+export class XcodeBuildParser implements Parser {
+		
 	parse(type: AnnotationType, log: string): Annotation[] {
-		const location = {
-			file: "src/test.txt",
-			lineNumber: 5,
-			startCharacterIndex: 0,
-			endCharacterIndex: 100
-		};
-		const annotation = {
-			type: type,
-			message: "Hello World",
-			location: location
-		};
-		return [annotation]
+		let annotations: Annotation[] = []
+		const regex = /(.*):(\d*):(\d*): error: (.*)$/mg
+		let match: string[]
+		while ((match = regex.exec(log)) != null) {
+			const location = {
+				file: match[1],
+				lineNumber: +match[2],
+				startCharacterIndex: +match[3],
+			};
+			const annotation = {
+				type: type,
+				message: match[4],
+				location: location
+			};
+			annotations.push(annotation)
+		}
+		return annotations
 	}
 	
 }
-
-let p = new XcodeBuildParser();
-let x = p.parse(AnnotationType.Error, "Hello World");
-console.log("hello");
