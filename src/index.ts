@@ -1,5 +1,5 @@
-import { Annotation, AnnotationType, AnnotationLocation } from "./parser/parser";
-import { XcodeBuildParser } from "./parser/xcodebuild";
+// import { Annotation, AnnotationType, AnnotationLocation } from "./parser/parser";
+// import { XcodeBuildParser } from "./parser/xcodebuild";
 
 const core = require('@actions/core');
 const github = require('@actions/github');
