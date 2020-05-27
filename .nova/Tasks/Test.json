@@ -2,8 +2,11 @@
   "actions" : {
     "run" : {
       "enabled" : true,
-      "script" : "ts-node src\/parser\/xcodebuild.ts"
+      "script" : "# ts-node src\/parser\/xcodebuild.ts\nts-node src\/index.ts"
     }
+  },
+  "environment" : {
+    "INPUT_GITHUB_ACTIONS_TOKEN" : "6b28321f9a8a48d537faaa2b5c2e070e7e0c1c94"
   },
   "identifier" : "D5C52D2B-2487-44C0-A4D8-3FFAF8024168",
   "openLogOnRun" : "start"

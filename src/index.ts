@@ -1,14 +1,5 @@
-// import { Annotation, AnnotationType, AnnotationLocation } from "./parser/parser";
-// import { XcodeBuildParser } from "./parser/xcodebuild";
+import { Annotation, AnnotationType, AnnotationLocation } from "./parser/parser";
+import { XcodeBuildParser } from "./parser/xcodebuild";
+import { Annotator } from "./github/annotator";
 
-const core = require('@actions/core');
-const github = require('@actions/github');
-
-try {
-  const log = core.getInput('log');
-  console.log(`Hello ${log}!`);
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-} catch (error) {
-  core.setFailed(error.message);
-}
+console.log("::warning file=src/index.ts,line=1,col=5::Test");
