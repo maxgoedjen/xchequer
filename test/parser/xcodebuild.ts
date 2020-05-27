@@ -1,5 +1,6 @@
 import { Annotation, AnnotationType, AnnotationLocation } from "./../../src/parser/parser";
 import { XcodeBuildParser } from "./../../src/parser/xcodebuild";
+import { Annotator } from "./../../src/github/annotator";
 
 const text = `
 
@@ -126,5 +127,6 @@ CompileSwift normal arm64 /Users/max/Downloads/Trivial/Trivial/SceneDelegate.swi
 `;
 
 const parser = new XcodeBuildParser();
+const annotator = new Annotator();
 const annotations = parser.parse(AnnotationType.Error, text);
-console.log(annotations);
+annotator.createAnnotation(annotations[0]);
