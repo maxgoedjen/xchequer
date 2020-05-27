@@ -2,7 +2,7 @@ on: [push]
 
 jobs:
   test_xcodebuild:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     name: Test xcodebuild parsing and annotation
     steps:
       - name: Checkout
