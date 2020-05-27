@@ -5,7 +5,7 @@ export class XcodeBuildParser implements Parser {
 	parse(type: AnnotationType, log: string): Annotation[] {
 		let annotations: Annotation[] = []
 		const regex = /(.*):(\d*):(\d*): error: (.*)$/mg
-		let match: string[]
+		let match: RegExpExecArray | null
 		while ((match = regex.exec(log)) != null) {
 			const location = {
 				file: match[1],
