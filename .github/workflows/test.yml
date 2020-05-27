@@ -10,6 +10,7 @@ jobs:
       - name: Build project
         run: xcrun xcodebuild clean build -project sample/Trivial/Trivial.xcodeproj -scheme Trivial > build.log
       - name: Create annotations
+        if: always()
         uses: ./
         id: xchequer
         with:
