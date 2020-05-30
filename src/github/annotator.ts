@@ -5,10 +5,10 @@ export class Annotator {
 	createAnnotation(annotation: Annotation) {
 		let type: string;
 		switch (annotation.type) {
-			case AnnotationType.RuntimeFailure:
 			case AnnotationType.Warning:
 				type = "warning";
 				break;
+			case AnnotationType.RuntimeFailure:
 			case AnnotationType.Error:
 				type = "error";
 				break;
