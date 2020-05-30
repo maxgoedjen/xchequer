@@ -3,7 +3,9 @@ import { Parser, Annotation, AnnotationType, AnnotationLocation } from "./parser
 export class XcodeBuildParser implements Parser {
 		
 	parse(type: AnnotationType, log: string): Annotation[] {
-		let annotations: Set<Annotation> = new Set()
+		let annotations: Annotation[] = []
+		// Ridic that sets only use ===
+		let encountered: Set<string> = new Set();
 		let regex: RegExp;
 		switch (type) {
 			case AnnotationType.RuntimeFailure:
@@ -19,6 +21,11 @@ export class XcodeBuildParser implements Parser {
 
 		let match: RegExpExecArray | null
 		while ((match = regex.exec(log)) != null) {
+			const raw = match[0];
+			if (encountered.has(raw)) {
+				continue;
+			}
+			encountered.add(raw);
 			const location = {
 				file: match[1],
 				lineNumber: +match[2],
@@ -29,9 +36,9 @@ export class XcodeBuildParser implements Parser {
 				message: match[4],
 				location: location
 			};
-			annotations.add(annotation)
+			annotations.push(annotation)
 		}
-		return Array.from(annotations)
+		return annotations
 	}
 	
 }
