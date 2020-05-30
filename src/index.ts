@@ -1,4 +1,4 @@
-import { Annotation, AnnotationType, AnnotationLocation } from "./parser/parser";
+import { AnnotationType } from "./parser/parser";
 import { XcodeBuildParser } from "./parser/xcodebuild";
 import { Annotator } from "./github/annotator";
 import { Parameters } from "./github/parameters";

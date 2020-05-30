@@ -1,4 +1,4 @@
-import { Annotation, AnnotationType, AnnotationLocation } from "./../parser/parser";
+import { Annotation, AnnotationType } from "./../parser/parser";
 
 export class Annotator {
 
