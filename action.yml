@@ -5,10 +5,6 @@ inputs:
     description: 'Path to the log file to parse'
     required: true
     default: ''
-  project_directory:
-    description: 'Path to the project directory. If your xcodeproject is at `/Users/max/Development/Project/Project.xcodeproj`, the value here should be `/Users/max/Development/Project`'
-    required: true
-    default: ''
 
 runs:
   using: 'node12'
