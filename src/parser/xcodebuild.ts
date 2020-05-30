@@ -3,7 +3,7 @@ import { Parser, Annotation, AnnotationType, AnnotationLocation } from "./parser
 export class XcodeBuildParser implements Parser {
 		
 	parse(type: AnnotationType, log: string): Annotation[] {
-		let annotations: Annotation[] = []
+		let annotations: Set<Annotation> = new Set()
 		let regex: RegExp;
 		switch (type) {
 			case AnnotationType.RuntimeFailure:
@@ -29,9 +29,9 @@ export class XcodeBuildParser implements Parser {
 				message: match[4],
 				location: location
 			};
-			annotations.push(annotation)
+			annotations.add(annotation)
 		}
-		return annotations
+		return Array.from(annotations)
 	}
 	
 }
