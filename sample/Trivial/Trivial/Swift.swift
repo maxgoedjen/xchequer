@@ -11,6 +11,7 @@ import Foundation
 class X {
 
     func hello() {
+        let y: Int = "Test"
         let x = "Hello world"
     }
 
