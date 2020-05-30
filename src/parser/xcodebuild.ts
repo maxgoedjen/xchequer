@@ -4,8 +4,20 @@ export class XcodeBuildParser implements Parser {
 		
 	parse(type: AnnotationType, log: string): Annotation[] {
 		let annotations: Annotation[] = []
-		const regex = /(.*):(\d*):(\d*): error: (.*)$/mg
-		let match: string[]
+		let regex: RegExp;
+		switch (type) {
+			case AnnotationType.RuntimeFailure:
+				// Unimplemented
+				return [];
+			case AnnotationType.Warning:
+				regex = /(.*):(\d*):(\d*): warning: (.*)$/mg;
+				break;
+			case AnnotationType.Error:
+				regex = /(.*):(\d*):(\d*): error: (.*)$/mg;
+				break;
+		}
+
+		let match: RegExpExecArray | null
 		while ((match = regex.exec(log)) != null) {
 			const location = {
 				file: match[1],

@@ -1,0 +1,27 @@
+{
+  "name": "xchequer",
+  "version": "1.0.0",
+  "description": "GitHub action to read xcodebuild output and post a check for errors and test failures",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxgoedjen/xchequer.git"
+  },
+  "author": "Max Goedjen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxgoedjen/xchequer/issues"
+  },
+  "homepage": "https://github.com/maxgoedjen/xchequer#readme"
+}

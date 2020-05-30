@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+  test_xcodebuild:
+    runs-on: macOS-latest
+    name: Test xcodebuild parsing and annotation
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build project
+        run: xcrun xcodebuild clean build -project sample/Trivial/Trivial.xcodeproj -scheme Trivial > build.log
+      - name: Create annotations
+        if: always()
+        uses: ./
+        id: xchequer
+        with:
+          log: 'build.log'
